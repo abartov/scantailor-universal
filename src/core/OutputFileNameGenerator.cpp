@@ -22,6 +22,7 @@
 #include "AbstractRelinker.h"
 #include <QFileInfo>
 #include <QDir>
+#include <QSettings>
 #include <assert.h>
 
 OutputFileNameGenerator::OutputFileNameGenerator()
@@ -79,7 +80,15 @@ OutputFileNameGenerator::fileNameFor(PageId const& page) const
         name += QLatin1Char(ltr == (sub_page == PageId::LEFT_PAGE) ? '1' : '2');
         name += QLatin1Char(sub_page == PageId::LEFT_PAGE ? 'L' : 'R');
     }
-    name += QString::fromLatin1(".tif");
+    
+    // Get output format from settings
+    QSettings settings;
+    QString outputFormat = settings.value("output/format", "TIFF").toString();
+    if (outputFormat == "PNG") {
+        name += QString::fromLatin1(".png");
+    } else {
+        name += QString::fromLatin1(".tif");
+    }
 
     return name;
 }

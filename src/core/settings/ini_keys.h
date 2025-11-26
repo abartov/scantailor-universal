@@ -275,6 +275,8 @@ static const char* _key_tiff_compr_horiz_pred = "tiff_compression/use_horizontal
 static const bool _key_tiff_compr_horiz_pred_def = false;
 static const char* _key_tiff_compr_show_all = "tiff_compression/show_all";
 static const bool _key_tiff_compr_show_all_def = false;
+static const char* _key_output_format = "output/format";
+static const char* _key_output_format_def = "TIFF";
 
 static const char* _key_mode_bw_disable_smoothing = "mode_bw/disable_smoothing";
 static const bool _key_mode_bw_disable_smoothing_def = false;

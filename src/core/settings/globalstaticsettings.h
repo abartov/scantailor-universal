@@ -59,6 +59,8 @@ public:
 
     static void setTiffCompressionBW(QString const& compression_name);
     static void setTiffCompressionColor(QString const& compression_name);
+    static void setOutputFormat(QString const& format);
+    static QString getOutputFormat();
 
 private:
     GlobalStaticSettings() {}
@@ -75,6 +77,7 @@ public:
     static QString m_tiff_compr_method_color;
     static int m_tiff_compression_bw_id;
     static int m_tiff_compression_color_id;
+    static QString m_output_format;
     static int m_binrization_threshold_control_default;
     static bool m_use_horizontal_predictor;
     static bool m_disable_bw_smoothing;

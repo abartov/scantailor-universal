@@ -469,8 +469,21 @@ Task::process(
         bool invalidate_params = false;
 
         QString TiffCompressionUsed;
+        
+        // Check output format from settings
+        QString outputFormat = GlobalStaticSettings::getOutputFormat();
+        bool usePng = (outputFormat == "PNG");
+        
+        bool writeSuccess = false;
+        if (usePng) {
+            // PNG format with maximum compression
+            writeSuccess = out_img.save(out_file_path, "PNG", 9); // 9 is maximum compression for PNG
+        } else {
+            // TIFF format with configured compression
+            writeSuccess = TiffWriter::writeImage(out_file_path, out_img, false, 0, &TiffCompressionUsed);
+        }
 
-        if (!TiffWriter::writeImage(out_file_path, out_img, false, 0, &TiffCompressionUsed)) {
+        if (!writeSuccess) {
             invalidate_params = true;
         } else {
             deleteMutuallyExclusiveOutputFiles();
@@ -479,7 +492,7 @@ Task::process(
                 ImageMetadataCopier::copyMetadata(m_pageId.imageId().filePath(), out_file_path);
             }
 #endif
-            if (TiffCompressionUsed != new_output_image_params.TiffCompression()) {
+            if (!usePng && TiffCompressionUsed != new_output_image_params.TiffCompression()) {
                 new_output_image_params.setTiffCompression(TiffCompressionUsed);
             }
 //            if (TiffCompressionUsed != params.TiffCompression()) {
