@@ -237,6 +237,16 @@ MainWindow::MainWindow()
     });
     addAction(actionInsertEmptyPgAfter);
 
+    connect(actionRemoveFromProject, &QAction::triggered, this, [this]() {
+        if (isProjectLoaded() && m_ptrThumbSequence) {
+            std::set<PageId> selected = m_ptrThumbSequence->selectedItems();
+            if (!selected.empty()) {
+                showRemovePagesDialog(selected);
+            }
+        }
+    });
+    addAction(actionRemoveFromProject);
+
     connect(actionSwitchFilter1, SIGNAL(triggered(bool)), SLOT(switchFilter1()));
     connect(actionSwitchFilter2, SIGNAL(triggered(bool)), SLOT(switchFilter2()));
     connect(actionSwitchFilter3, SIGNAL(triggered(bool)), SLOT(switchFilter3()));
@@ -3332,7 +3342,7 @@ MainWindow::applyShortcutsSettings()
         // shortcutVisibleInContextMenu available in Qt 5.10+
         actionInsertEmptyPgBefore->setProperty("shortcutVisibleInContextMenu", QVariant(true));
     } else {
-        actionInsertEmptyPgBefore->setText(actionInsertEmptyPgBefore->text() + "/t" + k_seq.toString());
+        actionInsertEmptyPgBefore->setText(actionInsertEmptyPgBefore->text() + "\t" + k_seq.toString());
     }
     actionInsertEmptyPgBefore->setShortcut(k_seq);
 
@@ -3342,9 +3352,19 @@ MainWindow::applyShortcutsSettings()
         // shortcutVisibleInContextMenu available in Qt 5.10+
         actionInsertEmptyPgAfter->setProperty("shortcutVisibleInContextMenu", QVariant(true));
     } else {
-        actionInsertEmptyPgAfter->setText(actionInsertEmptyPgAfter->text() + "/t" + k_seq.toString());
+        actionInsertEmptyPgAfter->setText(actionInsertEmptyPgAfter->text() + "\t" + k_seq.toString());
     }
     actionInsertEmptyPgAfter->setShortcut(k_seq);
+
+    actionRemoveFromProject->setText(tr("Remove from project"));
+    k_seq = GlobalStaticSettings::createShortcut(RemoveFromProject);
+    if (actionRemoveFromProject->property("shortcutVisibleInContextMenu").isValid()) {
+        // shortcutVisibleInContextMenu available in Qt 5.10+
+        actionRemoveFromProject->setProperty("shortcutVisibleInContextMenu", QVariant(true));
+    } else {
+        actionRemoveFromProject->setText(actionRemoveFromProject->text() + "\t" + k_seq.toString());
+    }
+    actionRemoveFromProject->setShortcut(k_seq);
 
     actionSwitchFilter1->setShortcut(GlobalStaticSettings::createShortcut(StageFixOrientation));
     actionSwitchFilter2->setShortcut(GlobalStaticSettings::createShortcut(StageSplitPages));

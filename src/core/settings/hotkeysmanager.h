@@ -68,6 +68,7 @@ enum HotKeysId {
     ThumbSizeChange,
     InsertEmptyPageBefore = 350,
     InsertEmptyPageAfter,
+    RemoveFromProject,
     DeskewChange = 400,
     DeskewChangePrec,
     ContentMove = 500,

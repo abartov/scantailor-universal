@@ -118,6 +118,8 @@ void QHotKeys::resetToDefaults()
                            HotKeySequence(Qt::ControlModifier | Qt::ShiftModifier, Qt::Key_B)));
     data.append(HotKeyInfo(InsertEmptyPageAfter, QObject::tr("Insert empty page after"), KeysAndModifiers, HotKey,
                            HotKeySequence(Qt::ControlModifier | Qt::ShiftModifier, Qt::Key_A)));
+    data.append(HotKeyInfo(RemoveFromProject, QObject::tr("Remove from project"), KeysAndModifiers, HotKey,
+                           HotKeySequence(Qt::NoModifier, Qt::Key_Delete)));
 
     HotKeyGroup group_pages_manipulation("page_manipulation", QObject::tr("Pages manipulation"));
     group_pages_manipulation.setHotKeys(data);

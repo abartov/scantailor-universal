@@ -895,6 +895,21 @@
     <string>Ctrl+Shift+A</string>
    </property>
   </action>
+  <action name="actionRemoveFromProject">
+   <property name="icon">
+    <iconset resource="../resources/resources.qrc">
+     <normaloff>:/icons/user-trash.png</normaloff>:/icons/user-trash.png</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">Remove from project</string>
+   </property>
+   <property name="toolTip">
+    <string>Remove from project</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
+  </action>
   <action name="actionCopySourceFileName">
    <property name="icon">
     <iconset theme="copy">
