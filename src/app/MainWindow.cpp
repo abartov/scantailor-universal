@@ -3362,7 +3362,7 @@ MainWindow::applyShortcutsSettings()
         // shortcutVisibleInContextMenu available in Qt 5.10+
         actionRemoveFromProject->setProperty("shortcutVisibleInContextMenu", QVariant(true));
     } else {
-        actionRemoveFromProject->setText(actionRemoveFromProject->text() + "/t" + k_seq.toString());
+        actionRemoveFromProject->setText(actionRemoveFromProject->text() + "\t" + k_seq.toString());
     }
     actionRemoveFromProject->setShortcut(k_seq);
 
