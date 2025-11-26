@@ -3342,7 +3342,7 @@ MainWindow::applyShortcutsSettings()
         // shortcutVisibleInContextMenu available in Qt 5.10+
         actionInsertEmptyPgBefore->setProperty("shortcutVisibleInContextMenu", QVariant(true));
     } else {
-        actionInsertEmptyPgBefore->setText(actionInsertEmptyPgBefore->text() + "/t" + k_seq.toString());
+        actionInsertEmptyPgBefore->setText(actionInsertEmptyPgBefore->text() + "\t" + k_seq.toString());
     }
     actionInsertEmptyPgBefore->setShortcut(k_seq);
 
@@ -3352,7 +3352,7 @@ MainWindow::applyShortcutsSettings()
         // shortcutVisibleInContextMenu available in Qt 5.10+
         actionInsertEmptyPgAfter->setProperty("shortcutVisibleInContextMenu", QVariant(true));
     } else {
-        actionInsertEmptyPgAfter->setText(actionInsertEmptyPgAfter->text() + "/t" + k_seq.toString());
+        actionInsertEmptyPgAfter->setText(actionInsertEmptyPgAfter->text() + "\t" + k_seq.toString());
     }
     actionInsertEmptyPgAfter->setShortcut(k_seq);
 
