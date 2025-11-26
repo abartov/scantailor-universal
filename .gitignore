@@ -15,3 +15,5 @@ ScanTailor.includes
 build-*/
 samples/
 
+_codeql_build_dir/
+build/
