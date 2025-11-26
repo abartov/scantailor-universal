@@ -20,9 +20,9 @@
 #include "PageId.h"
 #include "RelinkablePath.h"
 #include "AbstractRelinker.h"
+#include "settings/globalstaticsettings.h"
 #include <QFileInfo>
 #include <QDir>
-#include <QSettings>
 #include <assert.h>
 
 OutputFileNameGenerator::OutputFileNameGenerator()
@@ -81,9 +81,8 @@ OutputFileNameGenerator::fileNameFor(PageId const& page) const
         name += QLatin1Char(sub_page == PageId::LEFT_PAGE ? 'L' : 'R');
     }
     
-    // Get output format from settings
-    QSettings settings;
-    QString outputFormat = settings.value("output/format", "TIFF").toString();
+    // Get output format from GlobalStaticSettings
+    QString outputFormat = GlobalStaticSettings::getOutputFormat();
     if (outputFormat == "PNG") {
         name += QString::fromLatin1(".png");
     } else {

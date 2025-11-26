@@ -56,6 +56,7 @@
 #include "OutputGenerator.h"
 #include "TiffWriter.h"
 #include "ImageLoader.h"
+#include "settings/globalstaticsettings.h"
 #include "ErrorWidget.h"
 #include "imageproc/BinaryImage.h"
 #include "imageproc/PolygonUtils.h"
@@ -476,8 +477,9 @@ Task::process(
         
         bool writeSuccess = false;
         if (usePng) {
-            // PNG format with maximum compression
-            writeSuccess = out_img.save(out_file_path, "PNG", 9); // 9 is maximum compression for PNG
+            // PNG format - quality parameter is ignored, PNG always uses lossless compression
+            // Using default compression level which provides good balance of speed and size
+            writeSuccess = out_img.save(out_file_path, "PNG");
         } else {
             // TIFF format with configured compression
             writeSuccess = TiffWriter::writeImage(out_file_path, out_img, false, 0, &TiffCompressionUsed);
