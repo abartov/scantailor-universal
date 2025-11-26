@@ -901,7 +901,7 @@
      <normaloff>:/icons/user-trash.png</normaloff>:/icons/user-trash.png</iconset>
    </property>
    <property name="text">
-    <string notr="true">Remove from project	Del</string>
+    <string notr="true">Remove from project</string>
    </property>
    <property name="toolTip">
     <string>Remove from project</string>
