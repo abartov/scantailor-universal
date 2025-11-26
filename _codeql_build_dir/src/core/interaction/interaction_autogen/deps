@@ -1,0 +1,24 @@
+interaction_autogen/timestamp: \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/CMakeLists.txt \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/DragHandler.cpp \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/DragHandler.h \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/DragWatcher.cpp \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/DragWatcher.h \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/DraggableLineSegment.cpp \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/DraggableLineSegment.h \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/DraggableObject.h \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/DraggablePoint.cpp \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/DraggablePoint.h \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/DraggablePolygon.cpp \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/DraggablePolygon.h \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/InteractionHandler.cpp \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/InteractionHandler.h \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/InteractionState.cpp \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/InteractionState.h \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/InteractiveXSpline.cpp \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/InteractiveXSpline.h \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/ObjectDragHandler.cpp \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/ObjectDragHandler.h \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/ZoomHandler.cpp \
+	/home/runner/work/scantailor-universal/scantailor-universal/src/core/interaction/ZoomHandler.h \
+	/usr/local/bin/cmake
