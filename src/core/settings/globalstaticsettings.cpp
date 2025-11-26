@@ -30,6 +30,7 @@ QString GlobalStaticSettings::m_tiff_compr_method_bw;
 QString GlobalStaticSettings::m_tiff_compr_method_color;
 int GlobalStaticSettings::m_tiff_compression_bw_id = 5;
 int GlobalStaticSettings::m_tiff_compression_color_id = 5;
+QString GlobalStaticSettings::m_output_format = "TIFF";
 bool GlobalStaticSettings::m_drawDeskewDeviants = false;
 bool GlobalStaticSettings::m_drawContentDeviants = false;
 bool GlobalStaticSettings::m_drawMarginDeviants = false;
@@ -185,6 +186,7 @@ void GlobalStaticSettings::updateSettings()
 
     setTiffCompressionBW( settings.value(_key_tiff_compr_method_bw, _key_tiff_compr_method_bw_def).toString() );
     setTiffCompressionColor( settings.value(_key_tiff_compr_method_color, _key_tiff_compr_method_color_def).toString() );
+    m_output_format = settings.value(_key_output_format, _key_output_format_def).toString();
     m_binrization_threshold_control_default = settings.value(_key_output_bin_threshold_default, _key_output_bin_threshold_default_def).toInt();
     m_use_horizontal_predictor = settings.value(_key_tiff_compr_horiz_pred, _key_tiff_compr_horiz_pred_def).toBool();
     m_disable_bw_smoothing = settings.value(_key_mode_bw_disable_smoothing, _key_mode_bw_disable_smoothing_def).toBool();
@@ -285,6 +287,17 @@ void GlobalStaticSettings::setTiffCompressionColor(QString const& compression_na
     }
     // QSettings might be out of sync
     QSettings().setValue(_key_tiff_compr_method_color, m_tiff_compr_method_color);
+}
+
+void GlobalStaticSettings::setOutputFormat(QString const& format)
+{
+    m_output_format = format;
+    QSettings().setValue(_key_output_format, m_output_format);
+}
+
+QString GlobalStaticSettings::getOutputFormat()
+{
+    return m_output_format;
 }
 
 void GlobalStaticSettings::updateParams()

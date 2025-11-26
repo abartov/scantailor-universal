@@ -20,6 +20,7 @@
 #include "PageId.h"
 #include "RelinkablePath.h"
 #include "AbstractRelinker.h"
+#include "settings/globalstaticsettings.h"
 #include <QFileInfo>
 #include <QDir>
 #include <assert.h>
@@ -79,7 +80,14 @@ OutputFileNameGenerator::fileNameFor(PageId const& page) const
         name += QLatin1Char(ltr == (sub_page == PageId::LEFT_PAGE) ? '1' : '2');
         name += QLatin1Char(sub_page == PageId::LEFT_PAGE ? 'L' : 'R');
     }
-    name += QString::fromLatin1(".tif");
+    
+    // Get output format from GlobalStaticSettings
+    QString outputFormat = GlobalStaticSettings::getOutputFormat();
+    if (outputFormat == "PNG") {
+        name += QString::fromLatin1(".png");
+    } else {
+        name += QString::fromLatin1(".tif");
+    }
 
     return name;
 }

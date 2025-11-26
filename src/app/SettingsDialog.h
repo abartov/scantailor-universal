@@ -50,6 +50,7 @@ private slots:
 
     void on_cbTiffCompressionBW_currentIndexChanged(int index);
     void on_cbTiffCompressionColor_currentIndexChanged(int index);
+    void on_cbOutputFormat_currentIndexChanged(int index);
 
     void on_cbTiffFilter_clicked(bool checked);
 

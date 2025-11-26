@@ -1148,7 +1148,11 @@ If project was never saved before this will create UnnamedAutoSave.Scantailor fi
                <item>
                 <widget class="QLabel" name="lblTiffDescr">
                  <property name="text">
-                  <string>Once all processing stages are complete the resulting images are saved in &quot;./out&quot; sub-folder of your project input folder in TIFF format. TIFF format supports dozens of image compression methods from None to JPEG. Default is LZW. Stick to it till you are sure you need something different.
+                  <string>Once all processing stages are complete the resulting images are saved in &quot;./out&quot; sub-folder of your project input folder. You can choose between TIFF and PNG output formats. TIFF is the default format.
+
+PNG format offers maximum compression without quality loss. It's useful for reducing file sizes significantly.
+
+TIFF format supports dozens of image compression methods from None to JPEG. Default is LZW. Stick to it till you are sure you need something different.
 
 Availability of compression methods depends on their support in libtiff and options used to build it. So not all methods are available. Also some could be used with black/white images only.
 
@@ -1178,6 +1182,33 @@ Horizontal differencing predictor - a preprocessing step applied to image data t
            <string>Options</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_58">
+           <item>
+            <widget class="QLabel" name="lblOutputFormat">
+             <property name="text">
+              <string>Output format:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="cbOutputFormat">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <item>
+              <property name="text">
+               <string>TIFF</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>PNG</string>
+              </property>
+             </item>
+            </widget>
+           </item>
            <item>
             <widget class="QLabel" name="lblTifCompressionBw">
              <property name="text">

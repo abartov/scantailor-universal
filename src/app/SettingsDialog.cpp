@@ -513,6 +513,16 @@ void SettingsDialog::on_stackedWidget_currentChanged(int /*arg1*/)
     } else if (currentPage == ui.pageTiffCompression) {
         loadTiffList();
         ui.useHorizontalPredictor->setChecked(m_settings.value(_key_tiff_compr_horiz_pred, _key_tiff_compr_horiz_pred_def).toBool());
+        
+        QString outputFormat = m_settings.value(_key_output_format, _key_output_format_def).toString();
+        ui.cbOutputFormat->blockSignals(true);
+        int formatIdx = ui.cbOutputFormat->findText(outputFormat);
+        if (formatIdx >= 0) {
+            ui.cbOutputFormat->setCurrentIndex(formatIdx);
+        } else {
+            ui.cbOutputFormat->setCurrentIndex(0); // Default to TIFF
+        }
+        ui.cbOutputFormat->blockSignals(false);
     } else if (currentPage == ui.pageAutoSaveProject) {
         ui.sbSavePeriod->setValue(abs(m_settings.value(_key_autosave_time_period_min, _key_autosave_time_period_min_def).toInt()));
     } else if (currentPage == ui.pageOutput) {
@@ -680,6 +690,13 @@ void SettingsDialog::on_cbTiffCompressionColor_currentIndexChanged(int index)
 {
     ui.lblTiffDetailsColor->setText(ui.cbTiffCompressionColor->itemData(index).toString());
     m_settings.setValue(_key_tiff_compr_method_color, ui.cbTiffCompressionColor->currentText());
+}
+
+void SettingsDialog::on_cbOutputFormat_currentIndexChanged(int /*index*/)
+{
+    QString format = ui.cbOutputFormat->currentText();
+    m_settings.setValue(_key_output_format, format);
+    GlobalStaticSettings::setOutputFormat(format);
 }
 
 
